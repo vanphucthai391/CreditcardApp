@@ -1,0 +1,19 @@
+<form #form ="ngForm"(submit)="onsubmit(form)">
+    <div>
+        <label>cardownername</label>
+        <input class="form-control form-control-lg" #cardownername="ngModel" name="cardownername" [(ngModel)]="service.formdata.cardownername">
+    </div>
+    <div>
+        <label>cardnumber</label>
+        <input class="form-control form-control-lg" #cardnumber="ngModel" name="cardnumber" [(ngModel)]="service.formdata.cardnumber">
+    </div>
+    <div>
+        <label>expirationdate</label>
+        <input class="form-control form-control-lg" #expirationdate="ngModel" name="expirationdate" [(ngModel)]="service.formdata.expirationdate">
+    </div>
+        <div>
+        <label>securitycode</label>
+        <input class="form-control form-control-lg" #securitycode="ngModel" name="securitycode" [(ngModel)]="service.formdata.securitycode">
+    </div>
+    <button type="submit">submit</button>
+</form>

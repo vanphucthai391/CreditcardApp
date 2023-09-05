@@ -1,0 +1,19 @@
+<div class="row mt-5">
+    <div class="col-6">
+    <app-payment-detail-form/>
+    <div class="col-6">
+        <ul class="list-group">
+            <!-- <li *ngFor="let pd of service.list">{{pd.cardownername}} {{pd.cardnumber}} {{pd.expirationdate}} {{pd.securitycode}}</li> -->
+            {{ service.list.cardownername }} {{ service.list.cardnumber }} {{ service.list.expirationdate }} {{ service.list.securitycode }}
+        </ul>
+        <table>
+            <tr  *ngFor="let pd of service.list1">
+                <td>{{pd.cardownername}}</td>
+                <td>{{pd.cardnumber}}</td>
+                <td>{{pd.expirationdate}}</td>
+                <td>{{pd.securitycode}}</td>
+                <td><button (click)="ondelete(pd.paymentdetailid)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
