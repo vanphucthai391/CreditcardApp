@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { environment } from 'src/environments/environment.development';
 import { PaymentDetail} from './payment-detail.model'
+import { NgIf } from '@angular/common';
+import { NgForm } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,5 +37,12 @@ export class PaymentDetailService {
   }
   deletepaymentdetail(id:number){
     return this.http.delete(this.url1+'/'+id)
+  }
+  putpaymentdetail(){
+    return this.http.put(this.url1+'/'+this.formdata.paymentdetailid,this.formdata)
+  }
+  resetformdetail(form:NgForm){
+    form.form.reset();
+    this.formdata=new PaymentDetail();
   }
 }

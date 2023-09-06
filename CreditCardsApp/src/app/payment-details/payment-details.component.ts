@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { PaymentDetailService } from '../shared/payment-detail.service';
+import { PaymentDetail} from '../shared/payment-detail.model'
 
 @Component({
   selector: 'app-payment-details',
@@ -19,9 +20,15 @@ ondelete(id:number){
   if(confirm('Are you sure to delete this record?'))
   this.service.deletepaymentdetail(id)
   .subscribe({
-    next:res=>{this.service.list1 = this.service.list1.filter(pd => pd.paymentdetailid !== id);},
+    next:res=>{
+      this.service.list1 = this.service.list1.filter(pd => pd.paymentdetailid !== id);
+      console.log(res);
+    },
     error:err=>{console.log(err)}
   })
+}
+onedit(selectedrecord:PaymentDetail){
+  this.service.formdata=Object.assign({},selectedrecord);
 }
 
 }

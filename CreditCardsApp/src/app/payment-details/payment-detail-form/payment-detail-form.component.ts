@@ -11,11 +11,31 @@ export class PaymentDetailFormComponent {
   constructor(public service:PaymentDetailService){
   }
   onsubmit(form:NgForm){
+      if(this.service.formdata.paymentdetailid==0){
+        this.insertrecord(form)
+      }
+      else{
+        this.updaterecord(form)
+      }
+  }
+  insertrecord(form:NgForm){
     this.service.postpaymentdetail()
     .subscribe({
       next:res=>{
         console.log(res);
+        this.service.resetformdetail(form);
         this.service.refreshList1();
+      },
+      error:err=>{console.log(err)}
+    })
+  }
+  updaterecord(form:NgForm){
+    this.service.putpaymentdetail()
+    .subscribe({
+      next:res=>{
+        console.log(res);
+        this.service.resetformdetail(form);
+        this.service.refreshList1();//lam moi list data
       },
       error:err=>{console.log(err)}
     })

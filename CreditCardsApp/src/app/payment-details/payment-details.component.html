@@ -12,7 +12,9 @@
                 <td>{{pd.cardnumber}}</td>
                 <td>{{pd.expirationdate}}</td>
                 <td>{{pd.securitycode}}</td>
+                <td><button (click)="onedit(pd)">Edit</button></td>
                 <td><button (click)="ondelete(pd.paymentdetailid)">Delete</button></td>
+
             </tr>
         </table>
     </div>
