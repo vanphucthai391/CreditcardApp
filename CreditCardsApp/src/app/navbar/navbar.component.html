@@ -1,0 +1,37 @@
+<div style="height: 80vh;">
+    <mat-toolbar color="primary" >
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+          <mat-icon>menu</mat-icon>
+      </button>
+    <span>Credit Card App</span>
+    <span class="example-spacer"></span>
+    <div fxShow="true" fxHide.lt-md="true">
+    <button mat-button routerLink="/home">Home</button>
+    <button mat-button routerLink="/pdf">History</button>
+    <button mat-button routerLink="/contact">Contact</button>
+    <button mat-button routerLink="/about">About</button>
+    </div>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+   </button>
+  </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+    <mat-nav-list>  
+      <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+      <a routerLink="/home" mat-list-item>Home</a>
+      <a routerLink="/pdf" mat-list-item>History</a>
+      <a routerLink="#" mat-list-item>Contact</a>
+      <a routerLink="#" mat-list-item>About</a>
+    </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill><router-outlet></router-outlet></mat-sidenav-content>
+  </mat-sidenav-container>
+  <div>
+

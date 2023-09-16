@@ -1,4 +1,4 @@
-<form #form ="ngForm"(submit)="onsubmit(form)">
+<!-- <form #form ="ngForm"(submit)="onsubmit(form)">
     <div>
         <label>cardownername</label>
         <input class="form-control form-control-lg" #cardownername="ngModel" name="cardownername" [(ngModel)]="service.formdata.cardownername">
@@ -16,5 +16,24 @@
         <input class="form-control form-control-lg" #securitycode="ngModel" name="securitycode" [(ngModel)]="service.formdata.securitycode">
     </div>
     <button type="submit">submit</button>&nbsp;<button type="reset">Reset</button>
-
+</form> -->
+<form #form ="ngForm"(submit)="onsubmit(form)">
+<mat-form-field appearance="outline">
+    <mat-label>Card Owner Name</mat-label>
+    <input class="custom-input" matInput class="form-control form-control-lg" #cardownername="ngModel" name="cardownername"  [(ngModel)]="service.formdata.cardownername">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Card Number</mat-label>
+    <input matInput class="form-control form-control-lg" #cardnumber="ngModel" name="cardnumber" [(ngModel)]="service.formdata.cardnumber">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Expiration Date</mat-label>
+    <input matInput class="form-control form-control-lg" #expirationdate="ngModel" name="expirationdate" [(ngModel)]="service.formdata.expirationdate">
+  </mat-form-field > 
+  <mat-form-field appearance="outline">
+    <mat-label>Security Code</mat-label>
+    <input matInput class="form-control form-control-lg" #securitycode="ngModel" name="securitycode" [(ngModel)]="service.formdata.securitycode">
+  </mat-form-field>
+  <button mat-fab extended color="primary" type="submit">Submit</button>
+  <button mat-fab extended color="warn" type="reset">Reset</button>
 </form>

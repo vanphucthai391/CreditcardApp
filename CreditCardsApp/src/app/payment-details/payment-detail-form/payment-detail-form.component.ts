@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PaymentDetailService } from 'src/app/shared/payment-detail.service';
 import {NgForm} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -8,10 +8,13 @@ import { ToastrService } from 'ngx-toastr';
   styles: [
   ]
 })
-export class PaymentDetailFormComponent {
+export class PaymentDetailFormComponent  implements OnInit{
   constructor(public service:PaymentDetailService,private toastr: ToastrService){
   }
-  
+  ngOnInit(): void {
+    console.log('PaymentDetailsComponent initialized.');
+
+  }
   onsubmit(form:NgForm){
       if(this.service.formdata.paymentdetailid==0){
         this.insertrecord(form)
@@ -29,7 +32,9 @@ export class PaymentDetailFormComponent {
         this.service.refreshList1();
         this.toastr.success('Payment Details!', 'inserted successfully');
       },
-      error:err=>{console.log(err)}
+      error:err=>{console.log(err);
+        
+      }
     })
   }
   updaterecord(form:NgForm){

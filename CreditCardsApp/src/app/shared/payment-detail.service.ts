@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment.development';
 import { PaymentDetail} from './payment-detail.model'
 import { NgIf } from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +34,7 @@ export class PaymentDetailService {
       error:err=>{console.log(err)}
     })
   }
+
   postpaymentdetail(){
     return this.http.post(this.url1,this.formdata)
   }

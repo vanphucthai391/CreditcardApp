@@ -1,6 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { PaymentDetailService } from '../shared/payment-detail.service';
 import { PaymentDetail} from '../shared/payment-detail.model'
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-payment-details',
@@ -8,13 +10,15 @@ import { PaymentDetail} from '../shared/payment-detail.model'
   styleUrls: ['./payment-details.component.css']
 
 })
-export class PaymentDetailsComponent implements OnInit {
-  constructor(public service:PaymentDetailService){
-    
+
+export class PaymentDetailsComponent implements OnInit{
+  constructor(public service:PaymentDetailService,private toastr:ToastrService){
   }
+  displayedColumns: string[] = ['paymentdetailid', 'cardownername', 'cardnumber', 'expirationdate','securitycode','custom-buton'];
   ngOnInit(): void {
-this.service.refreshList();  
-this.service.refreshList1(); 
+  console.log('PaymentDetailsComponent initialized.');
+  this.service.refreshList1();  
+  this.service.refreshList(); 
 }
 ondelete(id:number){
   if(confirm('Are you sure to delete this record?'))
@@ -30,5 +34,5 @@ ondelete(id:number){
 onedit(selectedrecord:PaymentDetail){
   this.service.formdata=Object.assign({},selectedrecord);
 }
-
 }
+
